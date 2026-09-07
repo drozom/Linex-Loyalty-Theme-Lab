@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en" data-accent="green" data-mode="light" data-dir="flat">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linex Loyalty — Theme Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════════════
+   design.md — THE SINGLE SOURCE OF COLOUR
+   Nothing below this block names a colour. Change one attribute on <html>
+   and the whole site changes.
+
+   Every value below was generated, not eyeballed: each accent-and-background
+   pair on this page was measured, and any value that fell under WCAG AA was
+   shifted in lightness until it passed. Lowest pair in the system: 4.50.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* — 1. SURFACES —————————————————————————————————————————————————
+   Whitish = the public.com direction Philippe asked for
+   Navy    = #17153B, the Azul Noche of the brand manual                    */
+/* Whitish and Navy are fixed. Tinted is generated per accent, below. */
+[data-mode="light"]{
+  --bg:#F8F8FB;  --surface:#FFFFFF;  --raised:#F1F1F6;
+  --ink:#17153B;  --body:#4C4E68;  --muted:#84869F;
+  --line:#E7E6EF;  --line-strong:#D6D4E4;
+  --deep:#17153B;  --deep-ink:#FFFFFF;  --deep-body:#B9BBD4;  --deep-line:#302D5C;
+  --shadow:0 1px 2px rgba(23,21,59,.05), 0 12px 40px rgba(23,21,59,.07);
+}
+[data-mode="dark"]{
+  --bg:#17153B;  --surface:#1E1B4A;  --raised:#262260;
+  --ink:#FFFFFF;  --body:#BFC1D9;  --muted:#8A8CAE;
+  --line:#302D5C;  --line-strong:#403C74;
+  --deep:#100E2C;  --deep-ink:#FFFFFF;  --deep-body:#B9BBD4;  --deep-line:#26234F;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 40px rgba(0,0,0,.4);
+}
+
+/* — 2. ACCENTS — the masterbrand colour under evaluation ————————————
+   --accent       the colour itself, for fills and graphics
+   --accent-text  the value legible as text on the current background
+   --accent-deep  the value legible on the dark bands, in either mode
+   --on-accent    the label colour that sits on an --accent fill
+   --accent-rgb   the accent as channels, for translucent veils
+
+   The accent is never used as a background wash. A dark tint of a warm colour
+   is mud. Where atmosphere is wanted, the accent passes over a fixed surface
+   as a veil, so it reads as brand colour without turning the page into a block.
+
+   Three backgrounds. Whitish and Navy are neutral and identical for every
+   accent, so the colour is judged on its own. Tinted derives its whole surface
+   set from the accent, so the page belongs to the colour rather than hosting
+   it — its values are generated per accent, further down.
+   No candidate here is a colour already committed to another Linex brand.  */
+[data-accent="green"]{ --accent:#3CCEAB; --on-accent:#002C16; --accent-rgb:60,206,171; }
+[data-mode="light"][data-accent="green"]{ --accent-text:#007F61; --accent-soft:#EFFAF6; --accent-line:#C0EDDE; --accent-deep:#3CCEAB; }
+[data-mode="dark"][data-accent="green"]{ --accent-text:#3CCEAB; --accent-soft:#113435; --accent-line:#16564E; --accent-deep:#3CCEAB; }
+[data-mode="tint"][data-accent="green"]{
+  --bg:#E0F7EF; --surface:#FFFFFF; --raised:#CDECE2;
+  --ink:#263650; --body:#4F5F71; --muted:#5E6F7F;
+  --line:#C5E3D9; --line-strong:#A2C9BC;
+  --deep:#263650; --deep-ink:#FFFFFF; --deep-body:#AEBECF; --deep-line:#384569;
+  --accent-text:#007759; --accent-soft:#C9F4E6; --accent-line:#A2D4C3; --accent-deep:#3CCEAB; }
+[data-accent="aqua"]{ --accent:#2DD4BF; --on-accent:#002C20; --accent-rgb:45,212,191; }
+[data-mode="light"][data-accent="aqua"]{ --accent-text:#008171; --accent-soft:#EFFBF8; --accent-line:#BFF0E6; --accent-deep:#2DD4BF; }
+[data-mode="dark"][data-accent="aqua"]{ --accent-text:#2DD4BF; --accent-soft:#103439; --accent-line:#115654; --accent-deep:#2DD4BF; }
+[data-mode="tint"][data-accent="aqua"]{
+  --bg:#DEF7F2; --surface:#FFFFFF; --raised:#CCECE5;
+  --ink:#243754; --body:#4E6074; --muted:#5E7081;
+  --line:#C3E4DD; --line-strong:#9FC9C1;
+  --deep:#243754; --deep-ink:#FFFFFF; --deep-body:#AEBFD1; --deep-line:#37466B;
+  --accent-text:#007767; --accent-soft:#C7F4EB; --accent-line:#9FD4CA; --accent-deep:#2DD4BF; }
+[data-accent="seafoam"]{ --accent:#5EEAD4; --on-accent:#002C1F; --accent-rgb:94,234,212; }
+[data-mode="light"][data-accent="seafoam"]{ --accent-text:#008070; --accent-soft:#F2FDFB; --accent-line:#CBF8EE; --accent-deep:#5EEAD4; }
+[data-mode="dark"][data-accent="seafoam"]{ --accent-text:#5EEAD4; --accent-soft:#103338; --accent-line:#155654; --accent-deep:#5EEAD4; }
+[data-mode="tint"][data-accent="seafoam"]{
+  --bg:#E0F7F2; --surface:#FFFFFF; --raised:#CDECE5;
+  --ink:#2A3A57; --body:#526276; --muted:#607081;
+  --line:#C5E3DD; --line-strong:#A2C9C1;
+  --deep:#2A3A57; --deep-ink:#FFFFFF; --deep-body:#B1C1D4; --deep-line:#3C496E;
+  --accent-text:#007665; --accent-soft:#C9F4EB; --accent-line:#A2D3C9; --accent-deep:#5EEAD4; }
+[data-accent="forest"]{ --accent:#1C4A3E; --on-accent:#FFFFFF; --accent-rgb:28,74,62; }
+[data-mode="light"][data-accent="forest"]{ --accent-text:#1C4A3E; --accent-soft:#E7EBEA; --accent-line:#A5B6B0; --accent-deep:#5C8B7C; }
+[data-mode="dark"][data-accent="forest"]{ --accent-text:#709F91; --accent-soft:#242F37; --accent-line:#3C5051; --accent-deep:#59887A; }
+[data-mode="tint"][data-accent="forest"]{
+  --bg:#E8F5F1; --surface:#FFFFFF; --raised:#D9E9E3;
+  --ink:#1B203C; --body:#464E62; --muted:#676F81;
+  --line:#D0E0DB; --line-strong:#B1C6BF;
+  --deep:#1B203C; --deep-ink:#FFFFFF; --deep-body:#A5ADC0; --deep-line:#2F3257;
+  --accent-text:#1C4A3E; --accent-soft:#D9F0E8; --accent-line:#B5CFC6; --accent-deep:#639284; }
+[data-accent="lime"]{ --accent:#C5F04A; --on-accent:#172800; --accent-rgb:197,240,74; }
+[data-mode="light"][data-accent="lime"]{ --accent-text:#4D7D00; --accent-soft:#FBFEEE; --accent-line:#EDF9BE; --accent-deep:#C5F04A; }
+[data-mode="dark"][data-accent="lime"]{ --accent-text:#C5F04A; --accent-soft:#2A3119; --accent-line:#425316; --accent-deep:#C5F04A; }
+[data-mode="tint"][data-accent="lime"]{
+  --bg:#F1F4E0; --surface:#FFFFFF; --raised:#E3E8CE;
+  --ink:#3E3A44; --body:#606367; --muted:#6A6E70;
+  --line:#DBDFC5; --line-strong:#BEC4A3;
+  --deep:#3E3A44; --deep-ink:#FFFFFF; --deep-body:#BDC1C6; --deep-line:#4D485E;
+  --accent-text:#467600; --accent-soft:#E8EFCA; --accent-line:#C5CDA4; --accent-deep:#C5F04A; }
+[data-accent="sky"]{ --accent:#38BDF8; --on-accent:#002956; --accent-rgb:56,189,248; }
+[data-mode="light"][data-accent="sky"]{ --accent-text:#0078AF; --accent-soft:#F0F8FE; --accent-line:#C4E6FD; --accent-deep:#38BDF8; }
+[data-mode="dark"][data-accent="sky"]{ --accent-text:#38BDF8; --accent-soft:#0E304E; --accent-line:#155173; --accent-deep:#38BDF8; }
+[data-mode="tint"][data-accent="sky"]{
+  --bg:#E4F5FF; --surface:#FFFFFF; --raised:#D2E8F8;
+  --ink:#22335D; --body:#4F5D7B; --muted:#616F8B;
+  --line:#CAE0F0; --line-strong:#A8C5D9;
+  --deep:#22335D; --deep-ink:#FFFFFF; --deep-body:#AFBBD8; --deep-line:#364273;
+  --accent-text:#0070A6; --accent-soft:#D5EFFF; --accent-line:#A9CEE7; --accent-deep:#38BDF8; }
+[data-accent="marine"]{ --accent:#123B7A; --on-accent:#FFFFFF; --accent-rgb:18,59,122; }
+[data-mode="light"][data-accent="marine"]{ --accent-text:#123B7A; --accent-soft:#E8E9F1; --accent-line:#AAAFCB; --accent-deep:#6A80C8; }
+[data-mode="dark"][data-accent="marine"]{ --accent-text:#7D92DB; --accent-soft:#262C4F; --accent-line:#424A74; --accent-deep:#647BC2; }
+[data-mode="tint"][data-accent="marine"]{
+  --bg:#EFF1FF; --surface:#FFFFFF; --raised:#E1E4F9;
+  --ink:#181C47; --body:#474B6B; --muted:#686C8A;
+  --line:#D9DCF0; --line-strong:#BCC0DA;
+  --deep:#181C47; --deep-ink:#FFFFFF; --deep-body:#A7AAC9; --deep-line:#2D2F61;
+  --accent-text:#123B7A; --accent-soft:#E7EAFF; --accent-line:#C2C8E8; --accent-deep:#6F85CD; }
+[data-accent="petrol"]{ --accent:#0E5A6B; --on-accent:#FFFFFF; --accent-rgb:14,90,107; }
+[data-mode="light"][data-accent="petrol"]{ --accent-text:#0E5A6B; --accent-soft:#E8EDEF; --accent-line:#A8BDC4; --accent-deep:#4D8C9E; }
+[data-mode="dark"][data-accent="petrol"]{ --accent-text:#609EB1; --accent-soft:#1E3041; --accent-line:#345060; --accent-deep:#478799; }
+[data-mode="tint"][data-accent="petrol"]{
+  --bg:#E7F4F9; --surface:#FFFFFF; --raised:#D7E8EE;
+  --ink:#1A2244; --body:#475068; --muted:#646E86;
+  --line:#CFE0E5; --line-strong:#AFC5CC;
+  --deep:#1A2244; --deep-ink:#FFFFFF; --deep-body:#A6AFC7; --deep-line:#2E345E;
+  --accent-text:#0E5A6B; --accent-soft:#D7EFF7; --accent-line:#B2CED7; --accent-deep:#5594A6; }
+[data-accent="magenta"]{ --accent:#CC3383; --on-accent:#FFFFFF; --accent-rgb:204,51,131; }
+[data-mode="light"][data-accent="magenta"]{ --accent-text:#C62C7E; --accent-soft:#FCECF2; --accent-line:#F2B7CE; --accent-deep:#E14995; }
+[data-mode="dark"][data-accent="magenta"]{ --accent-text:#F65EA7; --accent-soft:#4E1B3E; --accent-line:#7C335C; --accent-deep:#DB4390; }
+[data-mode="tint"][data-accent="magenta"]{
+  --bg:#FFEDF4; --surface:#FFFFFF; --raised:#FEDDE9;
+  --ink:#3C1D49; --body:#604E6C; --muted:#7A6784;
+  --line:#F5D4E1; --line-strong:#E0B6C6;
+  --deep:#3C1D49; --deep-ink:#FFFFFF; --deep-body:#BEADCA; --deep-line:#4C3062;
+  --accent-text:#C02579; --accent-soft:#FFE4EE; --accent-line:#EFBBCF; --accent-deep:#F058A2; }
+[data-accent="rose"]{ --accent:#EC4899; --on-accent:#4B0019; --accent-rgb:236,72,153; }
+[data-mode="light"][data-accent="rose"]{ --accent-text:#CB217C; --accent-soft:#FFEEF4; --accent-line:#FEBFD7; --accent-deep:#EC4899; }
+[data-mode="dark"][data-accent="rose"]{ --accent-text:#FB57A6; --accent-soft:#50193D; --accent-line:#7E305B; --accent-deep:#EC4899; }
+[data-mode="tint"][data-accent="rose"]{
+  --bg:#FFEDF4; --surface:#FFFFFF; --raised:#FEDDE9;
+  --ink:#42204D; --body:#64506F; --muted:#796581;
+  --line:#F5D4E0; --line-strong:#E0B6C5;
+  --deep:#42204D; --deep-ink:#FFFFFF; --deep-body:#C2B0CD; --deep-line:#503365;
+  --accent-text:#C51777; --accent-soft:#FFE3EE; --accent-line:#F0BBCF; --accent-deep:#FB57A6; }
+[data-accent="red"]{ --accent:#CC333F; --on-accent:#FFFFFF; --accent-rgb:204,51,63; }
+[data-mode="light"][data-accent="red"]{ --accent-text:#C9303D; --accent-soft:#FEECEA; --accent-line:#F6B6B1; --accent-deep:#E54B52; }
+[data-mode="dark"][data-accent="red"]{ --accent-text:#FF6265; --accent-soft:#511C29; --accent-line:#80333C; --accent-deep:#DF454D; }
+[data-mode="tint"][data-accent="red"]{
+  --bg:#FFEEEC; --surface:#FFFFFF; --raised:#FFDDDA;
+  --ink:#401C3D; --body:#634D62; --muted:#7D667A;
+  --line:#F9D5D1; --line-strong:#E4B6B3;
+  --deep:#401C3D; --deep-ink:#FFFFFF; --deep-body:#C1ADC1; --deep-line:#4F3058;
+  --accent-text:#C62C3A; --accent-soft:#FFE5E2; --accent-line:#F4BCB7; --accent-deep:#F85C60; }
+[data-accent="gold"]{ --accent:#C99A3B; --on-accent:#3A1900; --accent-rgb:201,154,59; }
+[data-mode="light"][data-accent="gold"]{ --accent-text:#916A00; --accent-soft:#FCF4EB; --accent-line:#F0D7B4; --accent-deep:#C99A3B; }
+[data-mode="dark"][data-accent="gold"]{ --accent-text:#C99A3B; --accent-soft:#3E291B; --accent-line:#624826; --accent-deep:#C99A3B; }
+[data-mode="tint"][data-accent="gold"]{
+  --bg:#FEF0DE; --surface:#FFFFFF; --raised:#F4E3CC;
+  --ink:#3F2C3F; --body:#605864; --muted:#726B73;
+  --line:#EBDBC3; --line-strong:#D3BEA0;
+  --deep:#3F2C3F; --deep-ink:#FFFFFF; --deep-body:#BEB7C2; --deep-line:#4E3C5A;
+  --accent-text:#896300; --accent-soft:#FFE8C7; --accent-line:#DFC6A1; --accent-deep:#C99A3B; }
+[data-accent="champagne"]{ --accent:#E6C88A; --on-accent:#301D00; --accent-rgb:230,200,138; }
+[data-mode="light"][data-accent="champagne"]{ --accent-text:#866F36; --accent-soft:#FDF9F3; --accent-line:#F7EAD2; --accent-deep:#E6C88A; }
+[data-mode="dark"][data-accent="champagne"]{ --accent-text:#E6C88A; --accent-soft:#382B26; --accent-line:#5A4A37; --accent-deep:#E6C88A; }
+[data-mode="tint"][data-accent="champagne"]{
+  --bg:#F9F1E5; --surface:#FFFFFF; --raised:#EEE4D4;
+  --ink:#41334B; --body:#625E6D; --muted:#6F6B79;
+  --line:#E5DCCC; --line-strong:#CBC0AB;
+  --deep:#41334B; --deep-ink:#FFFFFF; --deep-body:#C0BCCB; --deep-line:#4F4364;
+  --accent-text:#7E672F; --accent-soft:#F7EAD3; --accent-line:#D6C8AE; --accent-deep:#E6C88A; }
+/* — 3. COMMITTED, NOT UNDER EVALUATION ——————————————————————————— */
+:root{
+  --star-travel:#5B5CFF;   /* official · brand manual · trademark filing   */
+  --star-go:#FF725E;       /* official · brand manual · trademark filing   */
+  --star-market:#DB2777;   /* proposed · pending                           */
+  --star-rewards:#059669;  /* proposed · pending                           */
+}
+/* ═══════════════════════ end of design.md ═══════════════════════════════ */
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--body);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background-color .28s ease,color .28s ease;}
+a{color:inherit;text-decoration:none;}
+:focus-visible{outline:2px solid var(--accent-text);outline-offset:3px;border-radius:4px;}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}html{scroll-behavior:auto;}}
+
+
+/* ── rail ─────────────────────────────────────────────────────────────── */
+.rail{position:sticky;top:0;z-index:60;background:#080808;color:#fff;border-bottom:1px solid #242424;
+  display:flex;align-items:center;gap:18px;padding:11px 20px;flex-wrap:wrap;}
+.rail-id{font-size:13px;font-weight:600;letter-spacing:-.01em;margin-right:auto;white-space:nowrap;}
+.rail-id span{color:var(--accent-deep);}
+.rail-group{display:flex;align-items:center;gap:8px;}
+.rail-label{font-size:10.5px;color:#9A9CB8;white-space:nowrap;}
+.chips{display:flex;gap:3px;background:rgba(255,255,255,.06);padding:4px;border-radius:9px;flex-wrap:wrap;}
+.chip{border:0;cursor:pointer;font-family:inherit;font-size:11.5px;font-weight:500;color:#C6C8DE;background:transparent;
+  padding:6px 10px;border-radius:6px;display:flex;align-items:center;gap:6px;transition:background .15s,color .15s;}
+.chip:hover{color:#fff;background:rgba(255,255,255,.08);}
+.chip[aria-pressed="true"]{background:rgba(255,255,255,.16);color:#fff;font-weight:600;}
+.chip .sw{width:11px;height:11px;border-radius:50%;display:block;flex-shrink:0;}
+.rail-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.rail-btn{border:1px solid rgba(255,255,255,.24);background:transparent;color:#fff;font-family:inherit;
+  font-size:11.5px;font-weight:500;padding:7px 12px;border-radius:7px;cursor:pointer;white-space:nowrap;
+  transition:background-color .15s,color .15s,border-color .15s;}
+.rail-btn:hover{background:rgba(255,255,255,.1);}
+.rail-btn[aria-expanded="true"]{background:#fff;color:#080808;border-color:#fff;}
+.rail-btn.is-copied{background:var(--accent-deep);color:#080808;border-color:transparent;}
+/* Laptop widths (1366–1440): give the accent row its own line so 13 chips
+   never fight the brand label or the action buttons for space. */
+@media (max-width:1480px){
+  .rail{row-gap:10px;}
+  .rail-id{flex:1 0 100%;margin-right:0;}
+  .rail-group-accent{flex:1 0 100%;}
+  .chip{padding:5px 8px;font-size:11px;}
+  .chip .sw{width:9px;height:9px;}
+}
+.dir-note{flex:1 0 100%;font-size:11px;line-height:1.5;color:#9A9CB8;max-width:1040px;}
+.dir-note b{color:#C6C8DE;}
+/* Aurora is not "an accent" — the per-candidate controls and metrics simply
+   do not apply to it, so they are removed from view rather than disabled. */
+[data-dir="aurora-light"] .rail-group-accent,[data-dir="aurora-dark"] .rail-group-accent,
+[data-dir="aurora-light"] .rail-group-mode,[data-dir="aurora-dark"] .rail-group-mode,
+[data-dir="aurora-light"] #btn-market,[data-dir="aurora-dark"] #btn-market,
+[data-dir="aurora-light"] #btn-compare,[data-dir="aurora-dark"] #btn-compare{display:none;}
+
+/* ── frame ────────────────────────────────────────────────────────────── */
+.frame{max-width:1240px;margin:26px auto;padding:0 22px;}
+.window{border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--surface);}
+.chrome{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--raised);border-bottom:1px solid var(--line);}
+.chrome .dots{display:flex;gap:6px;}
+.chrome .dots i{width:10px;height:10px;border-radius:50%;background:var(--line-strong);}
+.chrome .url{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:5px 12px;
+  font-size:11.5px;color:var(--muted);font-family:'Geist Mono',monospace;}
+.site{background:var(--bg);}
+
+.head{display:flex;align-items:center;justify-content:space-between;gap:26px;padding:19px 44px;
+  border-bottom:1px solid var(--line);background:var(--surface);}
+.wordmark{font-size:19px;font-weight:700;letter-spacing:-.025em;color:var(--ink);}
+.wordmark b{color:var(--accent-text);}
+.nav{display:flex;gap:22px;}
+.nav a{font-size:13.5px;color:var(--body);}
+.nav a:hover{color:var(--accent-text);}
+.btn-fill{background:var(--accent);color:var(--on-accent);font-size:13.5px;font-weight:600;padding:10px 19px;border-radius:8px;white-space:nowrap;}
+.btn-line{border:1px solid var(--line-strong);color:var(--ink);font-size:14px;font-weight:500;padding:13px 22px;border-radius:9px;background:var(--surface);}
+
+/* ── PROPOSED ─────────────────────────────────────────────────────────── */
+.hero-band{position:relative;overflow:hidden;
+  background:radial-gradient(900px 420px at 18% -20%, rgba(var(--accent-rgb),.10), transparent 64%);}
+[data-mode="dark"] .hero-band{background:radial-gradient(900px 420px at 18% -20%, rgba(var(--accent-rgb),.16), transparent 64%);}
+.hero{padding:72px 44px 60px;max-width:1000px;margin:0 auto;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:500;color:var(--accent-text);
+  background:var(--accent-soft);border:1px solid var(--accent-line);padding:6px 14px;border-radius:100px;margin-bottom:26px;}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--accent);display:block;}
+.hero h1{font-size:clamp(38px,5.2vw,60px);line-height:1.03;font-weight:600;letter-spacing:-.035em;color:var(--ink);max-width:15ch;margin-bottom:24px;}
+.hero .lede{font-size:18px;line-height:1.62;color:var(--body);max-width:62ch;margin-bottom:16px;font-weight:300;}
+.hero .aud{font-size:14.5px;color:var(--muted);max-width:60ch;margin-bottom:34px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.hero-actions .btn-fill{font-size:14.5px;padding:13px 24px;border-radius:9px;}
+.console{margin:52px auto 0;max-width:760px;background:var(--surface);border:1px solid var(--line);border-radius:16px;
+  padding:22px;box-shadow:var(--shadow);display:flex;gap:18px;align-items:center;}
+.orb{width:60px;height:60px;border-radius:50%;flex-shrink:0;
+  background:radial-gradient(circle at 34% 28%, #fff 0%, var(--accent) 58%, var(--accent) 100%);box-shadow:0 6px 26px -6px var(--accent);}
+.console-body{flex:1;min-width:0;}
+.console-who{font-size:11.5px;font-weight:600;color:var(--accent-text);margin-bottom:5px;}
+.console-line{font-size:16px;color:var(--ink);line-height:1.5;}
+.caret{display:inline-block;width:2px;height:17px;background:var(--accent);margin-left:2px;vertical-align:-3px;animation:blink 1.1s steps(2) infinite;}
+@keyframes blink{50%{opacity:0}}
+.console-send{width:38px;height:38px;border-radius:9px;background:var(--accent);color:var(--on-accent);
+  display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.strip{max-width:1080px;margin:0 auto;padding:0 44px 76px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.piece{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;}
+.piece .cap{font-size:11px;color:var(--muted);margin-bottom:14px;}
+.balance{font-size:32px;font-weight:600;letter-spacing:-.03em;color:var(--accent-text);line-height:1;}
+.balance small{display:block;font-size:12px;font-weight:400;color:var(--muted);margin-top:7px;letter-spacing:0;}
+.bar{height:7px;border-radius:4px;background:var(--raised);overflow:hidden;margin:16px 0 10px;}
+.bar i{display:block;height:100%;width:60%;background:var(--accent);border-radius:4px;}
+.bar-l{font-size:12.5px;color:var(--body);}
+.badge{display:inline-block;background:var(--accent);color:var(--on-accent);font-size:12px;font-weight:600;padding:6px 12px;border-radius:6px;}
+.badge-soft{display:inline-block;background:var(--accent-soft);color:var(--accent-text);border:1px solid var(--accent-line);
+  font-size:12px;font-weight:600;padding:5px 11px;border-radius:6px;margin-left:8px;}
+.sec{padding:0 44px 76px;max-width:1080px;margin:0 auto;}
+.sec-lead{max-width:56ch;margin-bottom:40px;}
+.sec h2{font-size:clamp(28px,3.4vw,38px);font-weight:600;letter-spacing:-.03em;color:var(--ink);line-height:1.1;margin-bottom:14px;}
+.sec-lead p{font-size:16.5px;color:var(--body);font-weight:300;}
+.areas{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.area{background:var(--surface);padding:30px 26px;}
+.area .rule{width:34px;height:3px;background:var(--accent);border-radius:2px;margin-bottom:18px;}
+.area .verb{font-size:12.5px;font-weight:600;color:var(--accent-text);margin-bottom:8px;}
+.area h3{font-size:21px;font-weight:600;color:var(--ink);letter-spacing:-.02em;margin-bottom:10px;}
+.area p{font-size:14.5px;line-height:1.6;color:var(--body);font-weight:300;}
+.area .go{display:inline-block;margin-top:16px;font-size:13.5px;font-weight:500;color:var(--accent-text);
+  border-bottom:1px solid var(--accent-line);padding-bottom:2px;}
+.band{background:var(--accent-soft);border-top:1px solid var(--accent-line);border-bottom:1px solid var(--accent-line);padding:64px 44px;margin-bottom:76px;}
+.band-in{max-width:1080px;margin:0 auto;display:flex;gap:56px;align-items:baseline;flex-wrap:wrap;}
+.band h2{font-size:clamp(30px,4vw,44px);font-weight:600;letter-spacing:-.035em;color:var(--ink);line-height:1.05;flex:1;min-width:280px;}
+.band p{flex:1;min-width:280px;font-size:16.5px;color:var(--body);font-weight:300;}
+.map{max-width:900px;margin:16px auto 0;display:block;}
+.map .node-name{font-family:'Geist',sans-serif;font-size:15px;font-weight:600;fill:var(--ink);}
+.map .node-role{font-family:'Geist',sans-serif;font-size:11px;fill:var(--muted);}
+.map .ring{fill:var(--surface);stroke:var(--line-strong);stroke-width:1.5;}
+.note{font-size:13.5px;color:var(--muted);max-width:64ch;margin-top:26px;}
+.secure{background:var(--deep);color:var(--deep-body);padding:78px 44px;}
+.secure-in{max-width:1080px;margin:0 auto;display:flex;gap:60px;flex-wrap:wrap;}
+.secure-l{flex:1.15;min-width:320px;}
+.secure-l .kick{font-size:12.5px;font-weight:600;color:var(--accent-deep);margin-bottom:14px;}
+.secure-l h2{font-size:clamp(26px,3.2vw,34px);font-weight:600;letter-spacing:-.03em;color:var(--deep-ink);margin-bottom:20px;line-height:1.12;}
+.secure-l p{font-size:15.5px;line-height:1.68;margin-bottom:15px;font-weight:300;max-width:56ch;}
+.secure-l p b{color:var(--deep-ink);font-weight:500;}
+.secure-r{flex:1;min-width:280px;display:flex;flex-direction:column;gap:10px;}
+.pill{border:1px solid var(--deep-line);border-radius:10px;padding:16px 18px;font-size:13.5px;line-height:1.55;font-weight:300;}
+.pill b{display:block;color:var(--deep-ink);font-size:14.5px;font-weight:500;margin-bottom:4px;}
+.metrics{max-width:1080px;margin:46px auto 0;display:flex;border-top:1px solid var(--deep-line);}
+.metric{flex:1;padding:28px 10px 0;}
+.metric .n{font-size:42px;font-weight:600;color:var(--deep-ink);letter-spacing:-.04em;line-height:1;}
+.metric .n em{font-style:normal;color:var(--accent-deep);}
+.metric .l{font-size:13px;color:var(--deep-body);margin-top:8px;font-weight:300;}
+.clients{padding:54px 44px;text-align:center;}
+.clients .k{font-size:13px;color:var(--muted);margin-bottom:22px;}
+.clients .row{display:flex;justify-content:center;gap:44px;flex-wrap:wrap;}
+.clients .row span{font-size:15px;font-weight:500;color:var(--muted);letter-spacing:.04em;text-transform:none;}
+.groupbar{background:var(--deep);color:var(--deep-body);padding:15px 44px;display:flex;align-items:center;gap:26px;font-size:13px;flex-wrap:wrap;}
+.groupbar .part{margin-right:auto;}
+.groupbar .part b{color:var(--deep-ink);font-weight:600;}
+.groupbar a{font-weight:500;color:var(--deep-ink);}
+.foot{padding:22px 44px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);background:var(--surface);}
+
+/* ── drawers ──────────────────────────────────────────────────────────── */
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,92vw);z-index:70;background:var(--surface);
+  border-left:1px solid var(--line);box-shadow:-20px 0 60px rgba(0,0,0,.25);transform:translateX(100%);
+  transition:transform .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;}
+.drawer[data-open="true"]{transform:translateX(0);}
+.drawer.wide{width:min(760px,94vw);}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--line);}
+.drawer-head h3{font-size:15.5px;font-weight:600;color:var(--ink);letter-spacing:-.01em;}
+.drawer-close{border:0;background:transparent;color:var(--muted);font-size:24px;cursor:pointer;line-height:1;font-family:inherit;}
+.drawer-body{padding:22px;overflow-y:auto;flex:1;}
+.drawer-body h4{font-size:12.5px;font-weight:600;color:var(--ink);margin:26px 0 10px;}
+.drawer-body h4:first-child{margin-top:0;}
+.drawer-body p{font-size:13.5px;color:var(--body);font-weight:300;margin-bottom:12px;}
+.code{background:#080808;color:#C6C8DE;border-radius:10px;padding:16px 18px;font-family:'Geist Mono',ui-monospace,monospace;
+  font-size:11.5px;line-height:1.85;white-space:pre;overflow-x:auto;}
+.code .c{color:#8A8CAE;} .code .k{color:var(--accent-deep);} .code .v{color:#fff;}
+.mkt{border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.mkt-row{display:flex;align-items:center;gap:13px;padding:12px 14px;background:var(--surface);border-bottom:1px solid var(--line);}
+.mkt-row:last-child{border-bottom:0;}
+.mkt-row.is-ours{background:var(--accent-soft);}
+.mkt-sw{width:26px;height:26px;border-radius:7px;flex-shrink:0;border:1px solid rgba(128,128,128,.3);}
+.mkt-txt{flex:1;min-width:0;}
+.mkt-txt b{display:block;font-size:13.5px;font-weight:500;color:var(--ink);}
+.mkt-txt span{font-size:12px;color:var(--muted);}
+.mkt-hex{font-family:'Geist Mono',monospace;font-size:11px;color:var(--muted);}
+.rows{display:flex;flex-direction:column;gap:9px;}
+.row-i{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--body);}
+.row-i .val{font-family:'Geist Mono',monospace;font-size:12px;color:var(--ink);margin-left:auto;}
+.tag{font-size:10.5px;font-weight:600;padding:3px 7px;border-radius:5px;white-space:nowrap;}
+.pass{background:var(--accent-soft);color:var(--accent-text);border:1px solid var(--accent-line);}
+.fail{background:var(--raised);color:var(--muted);border:1px solid var(--line-strong);}
+.verdict{border-left:3px solid var(--accent);padding:2px 0 2px 14px;font-size:13.5px;color:var(--body);font-weight:300;}
+.said{font-size:13px;color:var(--body);font-weight:300;border-top:1px solid var(--line);padding-top:12px;margin-top:14px;}
+.said b{color:var(--ink);font-weight:600;}
+.src{display:inline-block;font-size:10.5px;font-weight:600;color:var(--accent-text);background:var(--accent-soft);
+  border:1px solid var(--accent-line);border-radius:5px;padding:3px 8px;margin-bottom:14px;}
+.delta-list{border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.delta-item{padding:14px;border-bottom:1px solid var(--line);}
+.delta-item:last-child{border-bottom:0;}
+.delta-item b{display:block;font-size:13.5px;color:var(--ink);font-weight:600;margin-bottom:4px;}
+.delta-item span{font-size:12.5px;color:var(--body);font-weight:300;line-height:1.55;}
+.sev{display:inline-block;font-size:10px;font-weight:600;padding:2px 6px;border-radius:4px;margin-left:7px;vertical-align:1px;
+  background:var(--accent);color:var(--on-accent);}
+.sev-mid{background:var(--accent-soft);color:var(--accent-text);border:1px solid var(--accent-line);}
+.scrim{position:fixed;inset:0;background:rgba(8,8,8,.45);z-index:65;opacity:0;pointer-events:none;transition:opacity .3s;}
+.scrim[data-open="true"]{opacity:1;pointer-events:auto;}
+[hidden]{display:none!important;}
+
+/* ── Aurora: an isolated iframe, never merged into this document's DOM/CSS ── */
+.aurora-embed{background:#0A0720;}
+.aurora-embed iframe{display:block;width:100%;height:1500px;border:0;background:#fff;}
+.aurora-note{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding:11px 16px;border-top:1px solid var(--line);background:var(--surface);}
+.aurora-note span{font-size:12px;color:var(--muted);}
+.aurora-note a{font-size:12.5px;font-weight:600;color:var(--accent-text);white-space:nowrap;}
+
+/* ── compare table (all 13 at a glance) ──────────────────────────────────── */
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.cmp-table{width:100%;border-collapse:collapse;font-size:12.5px;}
+.cmp-table th{text-align:left;font-size:10.5px;font-weight:600;color:var(--muted);letter-spacing:.01em;
+  padding:0 8px 10px;border-bottom:2px solid var(--line-strong);white-space:nowrap;}
+.cmp-table td{padding:4px 8px;border-bottom:1px solid var(--line);vertical-align:middle;}
+.cmp-table tr.is-active{background:var(--accent-soft);}
+.cmp-sw{width:12px;height:12px;border-radius:50%;display:inline-block;flex-shrink:0;border:1px solid rgba(128,128,128,.3);}
+.cmp-pick{display:flex;align-items:center;gap:9px;border:0;background:transparent;font:inherit;font-size:13px;
+  color:var(--ink);cursor:pointer;padding:8px 6px;border-radius:6px;width:100%;text-align:left;}
+.cmp-pick:hover{background:var(--raised);}
+.cmp-pick[aria-pressed="true"]{color:var(--accent-text);font-weight:600;}
+.cmp-nums{display:flex;gap:4px;flex-wrap:nowrap;}
+
+@media(max-width:900px){
+  .areas,.strip{grid-template-columns:1fr;}
+  .nav{display:none;}
+  .metrics{flex-direction:column;}
+  .hero,.sec,.secure,.band,.strip{padding-left:24px;padding-right:24px;}
+  .head,.clients,.groupbar,.foot{padding-left:24px;padding-right:24px;}
+  .rail-group,.rail-actions{flex:1 0 100%;}
+}
+</style>
+</head>
+<body>
+<div class="rail">
+  <div class="rail-id">Linex Loyalty <span>· Theme Lab</span></div>
+
+  <div class="rail-group rail-group-dir">
+    <span class="rail-label">Direction</span>
+    <div class="chips" role="group" aria-label="Visual direction">
+      <button class="chip" data-set="dir" data-val="flat" aria-pressed="true">Flat accent</button>
+      <button class="chip" data-set="dir" data-val="aurora-light" aria-pressed="false">Aurora — Light</button>
+      <button class="chip" data-set="dir" data-val="aurora-dark" aria-pressed="false">Aurora — Dark</button>
+    </div>
+  </div>
+  <p class="dir-note"><b>Governance note:</b> the Constellation Model (reconciled in the brand manual) calls for one flat accent colour per star — not a gradient. Aurora is a more disruptive direction; if it is ever chosen, that opens a larger governance conversation about whether the masterbrand can carry a multi-colour gradient identity instead of a flat accent, not just which hex to pick. This tool does not take a position on that question.</p>
+
+  <div class="rail-group rail-group-accent">
+    <span class="rail-label">Accent</span>
+    <div class="chips" role="group" aria-label="Masterbrand accent colour">
+      <button class="chip" data-set="accent" data-val="green" aria-pressed="true"><i class="sw" style="background:#3CCEAB"></i>Green</button>
+      <button class="chip" data-set="accent" data-val="aqua" aria-pressed="false"><i class="sw" style="background:#2DD4BF"></i>Aqua</button>
+      <button class="chip" data-set="accent" data-val="seafoam" aria-pressed="false"><i class="sw" style="background:#5EEAD4"></i>Seafoam</button>
+      <button class="chip" data-set="accent" data-val="forest" aria-pressed="false"><i class="sw" style="background:#1C4A3E"></i>Forest</button>
+      <button class="chip" data-set="accent" data-val="lime" aria-pressed="false"><i class="sw" style="background:#C5F04A"></i>Lime</button>
+      <button class="chip" data-set="accent" data-val="sky" aria-pressed="false"><i class="sw" style="background:#38BDF8"></i>Sky</button>
+      <button class="chip" data-set="accent" data-val="marine" aria-pressed="false"><i class="sw" style="background:#123B7A"></i>Marine</button>
+      <button class="chip" data-set="accent" data-val="petrol" aria-pressed="false"><i class="sw" style="background:#0E5A6B"></i>Petrol</button>
+      <button class="chip" data-set="accent" data-val="magenta" aria-pressed="false"><i class="sw" style="background:#CC3383"></i>Magenta</button>
+      <button class="chip" data-set="accent" data-val="rose" aria-pressed="false"><i class="sw" style="background:#EC4899"></i>Rose</button>
+      <button class="chip" data-set="accent" data-val="red" aria-pressed="false"><i class="sw" style="background:#CC333F"></i>Red</button>
+      <button class="chip" data-set="accent" data-val="gold" aria-pressed="false"><i class="sw" style="background:#C99A3B"></i>Gold</button>
+      <button class="chip" data-set="accent" data-val="champagne" aria-pressed="false"><i class="sw" style="background:#E6C88A"></i>Champagne</button>
+    </div>
+  </div>
+
+  <div class="rail-group rail-group-mode">
+    <span class="rail-label">Background</span>
+    <div class="chips" role="group" aria-label="Background mode">
+      <button class="chip" data-set="mode" data-val="light" aria-pressed="true">Whitish</button>
+      <button class="chip" data-set="mode" data-val="tint"  aria-pressed="false">Tinted</button>
+      <button class="chip" data-set="mode" data-val="dark"  aria-pressed="false">Navy</button>
+    </div>
+  </div>
+
+  <div class="rail-actions">
+    <button class="rail-btn" id="btn-copylink" type="button">Copy link</button>
+    <button class="rail-btn" id="btn-compare" aria-expanded="false" type="button">Compare all 13</button>
+    <button class="rail-btn" id="btn-market" aria-expanded="false" type="button">Read on this colour</button>
+    <button class="rail-btn" id="btn-delta"  aria-expanded="false" type="button">From the live site</button>
+    <button class="rail-btn" id="btn-tokens" aria-expanded="false" type="button">design.md</button>
+  </div>
+</div>
+
+<div class="frame">
+  <div class="window" id="window-flat">
+    <div class="chrome"><div class="dots"><i></i><i></i><i></i></div><div class="url">linex-loyalty.com</div></div>
+    <div class="site">
+
+      <!-- ═══ PROPOSED ════════════════════════════════════════════════════ -->
+      <header class="head">
+        <div class="wordmark">Linex <b>Loyalty</b></div>
+        <nav class="nav">
+          <a href="#">Meet Ixar</a><a href="#">The Constellation</a><a href="#">Earn</a>
+          <a href="#">Burn</a><a href="#">Security</a><a href="#">About</a>
+        </nav>
+        <a class="btn-fill" href="#">Talk to Ixar</a>
+      </header>
+
+      <div class="hero-band">
+        <section class="hero">
+          <div class="eyebrow"><i></i>The white-label loyalty platform for banks and brands</div>
+          <h1>Your whole loyalty program, orchestrated by Ixar.</h1>
+          <p class="lede">We provide AI assistants to manage the entirety of your loyalty programs — from conception to operations, from user engagement to a universe of points redemption options. Ixar convenes the right specialists and composes the program you actually need.</p>
+          <p class="aud">Built for payment card issuers, large and small banks, global franchises, and payment networks.</p>
+          <div class="hero-actions">
+            <a class="btn-fill" href="#">Talk to Ixar</a>
+            <a class="btn-line" href="#">See the constellation</a>
+          </div>
+          <div class="console">
+            <div class="orb" aria-hidden="true"></div>
+            <div class="console-body">
+              <div class="console-who">Ixar</div>
+              <div class="console-line">Design a points program for our cardholders and add travel redemption<span class="caret"></span></div>
+            </div>
+            <div class="console-send" aria-hidden="true">&#8593;</div>
+          </div>
+        </section>
+      </div>
+        <div class="strip">
+          <div class="piece"><div class="cap">Member balance</div>
+            <div class="balance">12,480 pts<small>Maria Fernanda · Silver tier</small></div></div>
+          <div class="piece"><div class="cap">Progress to next reward</div>
+            <div class="bar"><i></i></div><div class="bar-l">1,200 / 2,000 pts to Gold tier</div></div>
+          <div class="piece"><div class="cap">Redemption offer</div>
+            <div style="margin-top:6px"><span class="badge">Redeem points</span><span class="badge-soft">5% off · 2,400 pts</span></div></div>
+        </div>
+
+        <section class="sec">
+          <div class="sec-lead">
+            <h2>Three areas, one intelligence.</h2>
+            <p>Ixar convenes specialist agents across the full loyalty loop and makes them work as one — composed for your program, never taken off a shelf.</p>
+          </div>
+          <div class="areas">
+            <div class="area"><div class="rule"></div><div class="verb">Earn</div><div class="rule"></div><h3>Points accrual</h3>
+              <p>Programmable accrual engines, cohort pricers and program optimizers that keep improving the reward loop.</p>
+              <a class="go" href="#">Linex Rewards</a></div>
+            <div class="area"><div class="rule"></div><div class="verb">Burn</div><h3>Rewards redemption</h3>
+              <p>A universe of category-specific agents, from a travel agent with human help to an automated crypto-broker.</p>
+              <a class="go" href="#">Travel and Marketplace</a></div>
+            <div class="area"><div class="rule"></div><div class="verb">Activate</div><h3>User engagement</h3>
+              <p>Dynamic offers, reactivation agents and acquisition agents that define and quantify campaign impact.</p>
+              <a class="go" href="#">How activation works</a></div>
+          </div>
+        </section>
+
+        <section class="band">
+          <div class="band-in">
+            <h2>Enter anywhere. Assemble over time.</h2>
+            <p>There is no fixed package. Start with the capability you need today — travel, rewards, a marketplace — and let Ixar bring in the rest as the program grows.</p>
+          </div>
+        </section>
+
+        <section class="sec">
+          <div class="sec-lead">
+            <h2>Ixar at the centre. Your stars around it.</h2>
+            <p>Each business line keeps its own colour and its own buyer. Ixar is what makes them work as one program.</p>
+          </div>
+          <svg class="map" viewBox="0 0 900 440" role="img" aria-label="Ixar at the centre, surrounded by Linex Travel, Linex Marketplace, Linex Rewards and LinexGo">
+            <line x1="450" y1="215" x2="180" y2="85"  stroke="var(--line-strong)" stroke-width="1.5"/>
+            <line x1="450" y1="215" x2="720" y2="78"  stroke="var(--line-strong)" stroke-width="1.5"/>
+            <line x1="450" y1="215" x2="200" y2="355" stroke="var(--line-strong)" stroke-width="1.5"/>
+            <line x1="450" y1="215" x2="705" y2="365" stroke="var(--line-strong)" stroke-width="1.5"/>
+            <circle class="ring" cx="180" cy="85" r="26"/><circle cx="180" cy="85" r="8" fill="var(--star-travel)"/>
+            <text class="node-name" x="180" y="139" text-anchor="middle">Linex Travel</text>
+            <text class="node-role" x="180" y="157" text-anchor="middle">travel redemption</text>
+            <circle class="ring" cx="720" cy="78" r="26"/><circle cx="720" cy="78" r="8" fill="var(--star-market)"/>
+            <text class="node-name" x="720" y="132" text-anchor="middle">Linex Marketplace</text>
+            <text class="node-role" x="720" y="150" text-anchor="middle">goods, games, streaming</text>
+            <circle cx="450" cy="215" r="58" fill="var(--accent)"/>
+            <circle cx="432" cy="197" r="22" fill="#FFFFFF" opacity="0.22"/>
+            <text x="450" y="214" text-anchor="middle" font-family="Geist,sans-serif" font-size="20" font-weight="600" fill="var(--on-accent)">Ixar</text>
+            <text x="450" y="232" text-anchor="middle" font-family="Geist,sans-serif" font-size="10" font-weight="500" fill="var(--on-accent)" opacity=".85">master genie</text>
+            <circle class="ring" cx="200" cy="355" r="26"/><circle cx="200" cy="355" r="8" fill="var(--star-rewards)"/>
+            <text class="node-name" x="200" y="409" text-anchor="middle">Linex Rewards</text>
+            <text class="node-role" x="200" y="427" text-anchor="middle">the earn engine</text>
+            <circle class="ring" cx="705" cy="365" r="26"/><circle cx="705" cy="365" r="8" fill="var(--star-go)"/>
+            <text class="node-name" x="705" y="419" text-anchor="middle">LinexGo</text>
+            <text class="node-role" x="705" y="437" text-anchor="middle">inside Travel · B2B</text>
+          </svg>
+          <p class="note">The colours of Travel and LinexGo are already approved and filed. They appear here so the masterbrand colour can be judged beside them — they are not candidates.</p>
+        </section>
+
+        <section class="secure">
+          <div class="secure-in">
+            <div class="secure-l">
+              <div class="kick">A trusted partner in loyalty management</div>
+              <h2>Built to run inside a bank.</h2>
+              <p>Our product teams have <b>decades of experience deploying IT solutions for banks</b>. Beyond industry-standard security certifications, the agent layer is architected to overlay your systems and <b>run separately from secure transaction management</b>.</p>
+              <p>It operates alongside <b>any infrastructure, legacy or state of the art</b>, and, as a long-term vendor to financial institutions, deploys on <b>either side of the firewall</b>.</p>
+            </div>
+            <div class="secure-r">
+              <div class="pill"><b>A single vendor interface</b>One point of contact, backed by an array of established, reputable suppliers.</div>
+              <div class="pill"><b>Security-first architecture</b>The agent layer never sits in the path of secure transaction management.</div>
+              <div class="pill"><b>Either side of the firewall</b>On-premise or cloud, legacy or modern — it fits the stack you already run.</div>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="metric"><div class="n">55M<em>+</em></div><div class="l">Consumers reached</div></div>
+            <div class="metric"><div class="n">36<em>%</em></div><div class="l">Revenue growth 2026</div></div>
+            <div class="metric"><div class="n">112<em>%</em></div><div class="l">Net client retention</div></div>
+          </div>
+        </section>
+
+        <section class="clients">
+          <div class="k">Trusted by</div>
+          <div class="row"><span>Santander</span><span>HSBC</span><span>Mastercard</span><span>Etihad</span><span>Bancolombia</span></div>
+        </section>
+
+        <div class="groupbar">
+          <span class="part">Part of <b>Linex Loyalty</b></span>
+          <a href="#">Linex Travel</a><a href="#">Linex Marketplace</a><a href="#">Linex Rewards</a>
+        </div>
+        <div class="foot">© 2026 Linex Loyalty. This website is provided for informational purposes only.</div>
+
+    </div>
+  </div>
+
+  <div class="window" id="window-aurora" hidden>
+    <div class="chrome"><div class="dots"><i></i><i></i><i></i></div><div class="url" id="aurora-url">linex-loyalty.com</div></div>
+    <div class="aurora-embed">
+      <iframe id="aurora-frame" title="Aurora direction preview" loading="lazy"></iframe>
+    </div>
+    <div class="aurora-note">
+      <span>Self-contained mockup, shown in an isolated frame — its styles never touch this page.</span>
+      <a id="aurora-open" href="#" target="_blank" rel="noopener">Open full-size in a new tab ↗</a>
+    </div>
+  </div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+
+<aside class="drawer" id="drawer-market" aria-label="Read on this colour" role="dialog" aria-modal="true">
+  <div class="drawer-head"><h3 id="dh">Read on this colour</h3><button class="drawer-close" data-close>&times;</button></div>
+  <div class="drawer-body">
+    <div class="src" id="src"></div>
+    <h4>Against the category</h4>
+    <div class="mkt" id="mkt-list"></div>
+    <h4>Distance from colours already approved</h4>
+    <p>Perceptual distance to the brands whose colour is settled and already in trademark filings. Below 20, two colours read as the same family.</p>
+    <div class="rows" id="delta-list"></div>
+    <h4>Legibility</h4>
+    <p>Every pair on this page was measured and corrected. AA for body copy is 4.5.</p>
+    <div class="rows" id="wcag-list"></div>
+    <h4>Read</h4>
+    <div class="verdict" id="verdict"></div>
+    <div class="said" id="said"></div>
+  </div>
+</aside>
+
+<aside class="drawer" id="drawer-delta" aria-label="From the live site" role="dialog" aria-modal="true">
+  <div class="drawer-head"><h3>From the live site</h3><button class="drawer-close" data-close>&times;</button></div>
+  <div class="drawer-body">
+    <p>Everything published today on linex-loyalty.com that carries into this decision, or that needs a decision of its own. The copy Philippe wrote is preserved in the page you are looking at; these are the items that change around it.</p>
+    <h4>Found on the live site</h4>
+    <div class="delta-list">
+      <div class="delta-item"><b>Social preview points to localhost<span class="sev">fix now</span></b>
+        <span>The og:image tag resolves to http://localhost:3000/hero-bg.png, so every link shared on LinkedIn, WhatsApp or Slack renders with a broken image. The og:url tag points to a different domain than this one. Independent of any colour decision.</span></div>
+      <div class="delta-item"><b>A supplier sits in the client wall<span class="sev">review</span></b>
+        <span>One name in Trusted By is a supplier rather than a client. It is reproduced here for fidelity, but it is worth a decision before the wall is shown to a prospect.</span></div>
+      <div class="delta-item"><b>&ldquo;A holding company that invests&rdquo;<span class="sev sev-mid">reword</span></b>
+        <span>The page describes Linex Loyalty as a holding company with capital structures, and the meta description says it invests globally in the sector. That is the language of the fund, not of the platform a bank is buying.</span></div>
+      <div class="delta-item"><b>Engage in the navigation<span class="sev sev-mid">retire</span></b>
+        <span>Engage is no longer a line of business. The engagement capability stays; the menu label goes and the section becomes Activate.</span></div>
+      <div class="delta-item"><b>The hero is a fixed image<span class="sev sev-mid">rebuild</span></b>
+        <span>hero-bg-blue.png is a blue raster file, so it sits outside design.md and will not follow a theme change. Whichever colour is chosen, the hero artwork has to be re-rendered. Here it is drawn in CSS so it can switch.</span></div>
+    </div>
+    <h4>What the proposed view adds</h4>
+    <div class="delta-list">
+      <div class="delta-item"><b>Ixar</b><span>The agents get a name and a face. Today the site says AI assistants; the proposal gives them a conductor the prospect can talk to.</span></div>
+      <div class="delta-item"><b>The constellation</b><span>Earn and Burn lead somewhere named — Rewards, Travel, Marketplace — instead of ending on a generic learn more.</span></div>
+      <div class="delta-item"><b>Security as its own section</b><span>The bank-grade paragraph is the most valuable copy on the site and currently sits buried in a block of prose.</span></div>
+      <div class="delta-item"><b>The Group Bar</b><span>A quiet strip at the foot linking the stars. Present, not explained.</span></div>
+    </div>
+  </div>
+</aside>
+
+<aside class="drawer" id="drawer-tokens" aria-label="design.md" role="dialog" aria-modal="true">
+  <div class="drawer-head"><h3>design.md — live</h3><button class="drawer-close" data-close>&times;</button></div>
+  <div class="drawer-body">
+    <p id="dir-aurora-note" hidden style="background:var(--raised);border-radius:8px;padding:10px 12px;">You're viewing an Aurora direction — this token system belongs to <b>Flat accent</b>, not Aurora. Aurora fixes its own gradient palette inside its own file; it does not read from these custom properties, and design.md does not describe it.</p>
+    <p>Every colour on both views resolves from this block. Change these values and the whole site changes — nothing else in the codebase names a colour.</p>
+    <div class="code" id="token-code"></div>
+    <h4>How these values were set</h4>
+    <p>Each accent was measured against every surface it lands on — page, card, tinted band, dark band, and its own fill. Any pair below WCAG AA was shifted in lightness, keeping hue and chroma, until it passed. The lowest pair in the finished system is 4.50.</p>
+    <h4>Committed, not under evaluation</h4>
+    <div class="code"><span class="c">/* the stars */</span>
+<span class="k">--star-travel</span>:  <span class="v">#5B5CFF</span>;  <span class="c">official, filed</span>
+<span class="k">--star-go</span>:      <span class="v">#FF725E</span>;  <span class="c">official, filed</span>
+<span class="k">--star-market</span>:  <span class="v">#DB2777</span>;  <span class="c">proposed</span>
+<span class="k">--star-rewards</span>: <span class="v">#059669</span>;  <span class="c">proposed</span></div>
+    <h4>The navy is not a choice</h4>
+    <p>The dark background is #17153B, the Azul Noche of the brand manual — the same navy the family already uses, so every candidate is judged on a surface it will actually live on.</p>
+  </div>
+</aside>
+
+<aside class="drawer wide" id="drawer-compare" aria-label="Compare all candidates" role="dialog" aria-modal="true">
+  <div class="drawer-head"><h3>Compare all 13, side by side</h3><button class="drawer-close" data-close>&times;</button></div>
+  <div class="drawer-body">
+    <p>Every candidate at once, before spending time inside any one of them. &Delta;E below 20 reads as the same family as the colour it is compared to; AA needs 4.5 or higher on that background. Click a name to make it the active candidate everywhere on this page.</p>
+    <div class="table-scroll">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th>Candidate</th>
+            <th>&Delta;E vs. Travel &middot; Go &middot; Violet</th>
+            <th>AA on Whitish &middot; Tinted &middot; Navy</th>
+          </tr>
+        </thead>
+        <tbody id="compare-body"></tbody>
+      </table>
+    </div>
+  </div>
+</aside>
+
+<script>
+const MKT = {
+  loylogic:['#E6003C','Loylogic','the largest rewards marketplace in the world'],
+  itravy:['#C8A24E','iTravy','luxury travel on points — closest to what Loyalty could be'],
+  tremendous:['#006FF7','Tremendous','gift card and rewards platform for businesses'],
+  xoxoday:['#F26522','Xoxoday','AI rewards, loyalty and incentives — corporate lane'],
+  tmobile:['#E20074','T-Mobile Tuesdays','the category precedent for a perks brand'],
+  violet:['#6D28D9','Violet','off the table — LATAM Pass and the family already use it']
+};
+const D = {
+  green:{name:'Green',hex:'#3CCEAB',src:'Diego study',
+    light:{text:'#007F61',ratio:4.99,deep:8.79},
+    dark:{text:'#3CCEAB',ratio:8.09,deep:9.46},
+    tint:{text:'#007759',ratio:5.34,deep:6.80},
+    onWhite:1.98, onNavy:8.79, fill:7.73,
+    fillOn:'dark text on the fill',
+    delta:[['Linex Travel',50.7],['LinexGo',62.6],['Violet',58.6]],
+    market:['loylogic','xoxoday','itravy','tremendous','tmobile','violet'],
+    verdict:"The farthest thing from anything the family owns, and nothing in rewards claims it. The cost: #3CCEAB scores 1.98 against white, so on a light page the brand always writes in a darker green \u2014 it lives as two values.", said:"<b>Phil:</b> would pick it today \u2014 green reads as go, forward motion, and this mint feels modern against navy. Switch to Whitish to see where it is weakest, which is the background Philippe asked for."},
+  aqua:{name:'Aqua',hex:'#2DD4BF',src:'From Aurora Light',
+    light:{text:'#008171',ratio:4.80,deep:9.35},
+    dark:{text:'#2DD4BF',ratio:8.61,deep:10.06},
+    tint:{text:'#007767',ratio:5.30,deep:7.22},
+    onWhite:1.86, onNavy:9.35, fill:8.17,
+    fillOn:'dark text on the fill',
+    delta:[['Linex Travel',49.3],['LinexGo',61.5],['Violet',57.9]],
+    market:['loylogic','xoxoday','tremendous','itravy','tmobile','violet'],
+    verdict:"The Aurora Light cyan. It sits 4.8 from Green, which is inside the range where two colours are the same decision \u2014 choosing between them is a preference, not a strategy. Marginally cooler and slightly more legible on navy.", said:"<b>New, from your directions.</b> Worth keeping only if the room genuinely prefers the cooler read; otherwise it splits the green vote."},
+  seafoam:{name:'Seafoam',hex:'#5EEAD4',src:'From Aurora',
+    light:{text:'#008070',ratio:4.86,deep:11.76},
+    dark:{text:'#5EEAD4',ratio:10.83,deep:12.66},
+    tint:{text:'#007665',ratio:5.43,deep:8.69},
+    onWhite:1.48, onNavy:11.76, fill:10.29,
+    fillOn:'dark text on the fill',
+    delta:[['Linex Travel',51.7],['LinexGo',61.6],['Violet',60.6]],
+    market:['loylogic','xoxoday','tremendous','itravy','tmobile','violet'],
+    verdict:"The lightest of the greens, from the Aurora dark direction where it was built to glow against near-black. It is 5.6 from Aqua and 8.2 from Green \u2014 again the same decision in a lighter register. Its strength is the Navy view, where it is the most luminous of the whole set.", said:"<b>New, from your directions.</b> On a light page it needs the deepest correction of the three greens, so it is the least flexible of them."},
+  forest:{name:'Forest',hex:'#1C4A3E',src:'From Atlas',
+    light:{text:'#1C4A3E',ratio:10.01,deep:4.51},
+    dark:{text:'#709F91',ratio:5.38,deep:4.66},
+    tint:{text:'#1C4A3E',ratio:8.96,deep:4.65},
+    onWhite:10.01, onNavy:1.74, fill:10.01,
+    fillOn:'white text on the fill',
+    delta:[['Linex Travel',41.1],['LinexGo',59.0],['Violet',38.4]],
+    market:['loylogic','xoxoday','tremendous','itravy','tmobile','violet'],
+    verdict:"From Atlas, where it was the base rather than the accent. A deep institutional green: it keeps Phil's reading of green as forward motion but in an adult register instead of a fintech mint. Like the blues, it disappears on the family navy and needs a lighter value there.", said:"<b>New.</b> Sits 14.9 from Petrol, so the two are close relatives \u2014 probably choose one, not both."},
+  lime:{name:'Lime',hex:'#C5F04A',src:'From Atlas',
+    light:{text:'#4D7D00',ratio:4.94,deep:13.21},
+    dark:{text:'#C5F04A',ratio:12.16,deep:14.21},
+    tint:{text:'#467600',ratio:5.37,deep:9.52},
+    onWhite:1.32, onNavy:13.21, fill:11.89,
+    fillOn:'dark text on the fill',
+    delta:[['Linex Travel',89.5],['LinexGo',60.0],['Violet',97.7]],
+    market:['loylogic','xoxoday','tremendous','itravy','tmobile','violet'],
+    verdict:"From Atlas. The most distinctive value in the whole set \u2014 89 from the Travel blue, and nothing in loyalty or payments is near it. Also the loudest: it fails as text on white and needs a deep olive, and it wants a dark page to work at all.", said:"<b>New.</b> Atlas paired it with forest green rather than navy. See it on Navy before judging \u2014 on Whitish it is at its worst."},
+  sky:{name:'Sky',hex:'#38BDF8',src:'From Aurora',
+    light:{text:'#0078AF',ratio:4.88,deep:8.12},
+    dark:{text:'#38BDF8',ratio:7.48,deep:8.74},
+    tint:{text:'#0070A6',ratio:5.21,deep:6.39},
+    onWhite:2.14, onNavy:8.12, fill:6.75,
+    fillOn:'dark text on the fill',
+    delta:[['Linex Travel',32.3],['LinexGo',55.0],['Violet',47.0]],
+    market:['tremendous','xoxoday','loylogic','itravy','tmobile','violet'],
+    verdict:"From Aurora. Bright, modern and clearly technological, and far enough from the Travel blue to be its own. It is the candidate that most looks like software rather than a bank, which is either the point or the problem.", said:"<b>New.</b> It is a blue in a category already full of blues \u2014 the exact risk Phil named, answered by turning the shade up rather than deepening it."},
+  marine:{name:'Marine',hex:'#123B7A',src:'Added for Philippe',
+    light:{text:'#123B7A',ratio:10.87,deep:4.59},
+    dark:{text:'#7D92DB',ratio:5.34,deep:4.60},
+    tint:{text:'#123B7A',ratio:9.72,deep:4.66},
+    onWhite:10.87, onNavy:1.60, fill:10.87,
+    fillOn:'white text on the fill',
+    delta:[['Linex Travel',22.3],['LinexGo',54.9],['Violet',20.1]],
+    market:['tremendous','loylogic','xoxoday','itravy','tmobile','violet'],
+    verdict:"The most legible candidate on white by a distance. But on the family navy the raw value scores 1.60 \u2014 effectively invisible \u2014 so on dark surfaces it becomes a pale blue that does not look like itself. It also sits 22.3 from the Travel blue.", said:"<b>Philippe:</b> asked for dark blue as the reliable choice for banks \u2014 this is that colour. <b>Phil:</b> warned blue is hard to differentiate unless the shade is distinctive. Tremendous is already blue in this category."},
+  petrol:{name:'Petrol',hex:'#0E5A6B',src:'Added for Phil',
+    light:{text:'#0E5A6B',ratio:7.80,deep:4.61},
+    dark:{text:'#609EB1',ratio:5.36,deep:4.63},
+    tint:{text:'#0E5A6B',ratio:7.06,deep:4.69},
+    onWhite:7.80, onNavy:2.23, fill:7.80,
+    fillOn:'white text on the fill',
+    delta:[['Linex Travel',23.6],['LinexGo',59.5],['Violet',22.7]],
+    market:['tremendous','loylogic','xoxoday','itravy','tmobile','violet'],
+    verdict:"Blue pushed far enough to be its own: still unmistakably blue, but teal enough to sit nowhere near the fintech azure the payments space occupies. Carries copy on white with a single value.", said:"<b>Philippe:</b> dark blue for comparison. <b>Phil:</b> blue only if the shade is distinctive \u2014 this is the attempt at that shade. Neither has seen it yet."},
+  magenta:{name:'Magenta',hex:'#CC3383',src:'Diego study',
+    light:{text:'#C62C7E',ratio:5.17,deep:4.63},
+    dark:{text:'#F65EA7',ratio:5.40,deep:4.65},
+    tint:{text:'#C02579',ratio:5.15,deep:4.77},
+    onWhite:4.81, onNavy:3.62, fill:4.81,
+    fillOn:'white text on the fill',
+    delta:[['Linex Travel',29.1],['LinexGo',28.3],['Violet',25.6]],
+    market:['tmobile','loylogic','xoxoday','tremendous','itravy','violet'],
+    verdict:"The most balanced on paper: it carries copy on white without a second value, which only Red also does. Against it, T-Mobile Tuesdays already owns magenta for precisely this job, and it sits near the proposed Marketplace accent.", said:"<b>Phil:</b> reads it as pink, carrying meaning not intended here. On navy it darkens and loses the pink note \u2014 the view his email did not see."},
+  rose:{name:'Rose',hex:'#EC4899',src:'From Aurora Light',
+    light:{text:'#CB217C',ratio:5.19,deep:4.93},
+    dark:{text:'#FB57A6',ratio:5.35,deep:5.31},
+    tint:{text:'#C51777',ratio:5.23,deep:4.88},
+    onWhite:3.53, onNavy:4.93, fill:4.53,
+    fillOn:'dark text on the fill',
+    delta:[['Linex Travel',30.8],['LinexGo',24.5],['Violet',30.7]],
+    market:['tmobile','xoxoday','loylogic','tremendous','itravy','violet'],
+    verdict:"The Aurora Light pink. It is 8.7 from Magenta, so it is the same decision in a warmer register \u2014 and it leans harder into exactly the pink reading Phil objected to. It is also the closest of the pinks to the LinexGo coral at 24.5.", said:"<b>New, from your directions.</b> Included so the magenta family can be judged as a family rather than a single swatch."},
+  red:{name:'Red',hex:'#CC333F',src:'Diego study',
+    light:{text:'#C9303D',ratio:5.28,deep:4.52},
+    dark:{text:'#FF6265',ratio:5.48,deep:4.55},
+    tint:{text:'#C62C3A',ratio:5.06,deep:4.86},
+    onWhite:5.11, onNavy:3.41, fill:5.11,
+    fillOn:'white text on the fill',
+    delta:[['Linex Travel',40.1],['LinexGo',18.3],['Violet',37.9]],
+    market:['loylogic','tmobile','xoxoday','tremendous','itravy','violet'],
+    verdict:"Loylogic proves red works for a rewards business. Two problems: inside a banking product red is already the colour of a declined transaction, and it sits 18.3 from the LinexGo coral, inside the range where two brands read as one family.", said:"<b>Phil:</b> stop, danger \u2014 too many negative connotations. The LinexGo collision is the harder argument, because it is measurable and LinexGo is first in the trademark queue."},
+  gold:{name:'Gold',hex:'#C99A3B',src:'Diego study',
+    light:{text:'#916A00',ratio:4.92,deep:6.77},
+    dark:{text:'#C99A3B',ratio:6.23,deep:7.29},
+    tint:{text:'#896300',ratio:5.20,deep:5.43},
+    onWhite:2.57, onNavy:6.77, fill:6.19,
+    fillOn:'dark text on the fill',
+    delta:[['Linex Travel',63.1],['LinexGo',30.1],['Violet',68.8]],
+    market:['itravy','loylogic','xoxoday','tremendous','tmobile','violet'],
+    verdict:"The category's own language \u2014 tiers are made of gold, and no Linex brand uses it. iTravy runs almost this exact value on near-black. On a light page it fails at 2.57 and writes in bronze instead.", said:"<b>Phil:</b> tacky, over-the-top, would skip it. <b>Diego's study</b> recommends it. That is a real split, and the Navy view is where the two readings are furthest apart."},
+  champagne:{name:'Champagne',hex:'#E6C88A',src:'From Meridian',
+    light:{text:'#866F36',ratio:4.84,deep:10.77},
+    dark:{text:'#E6C88A',ratio:9.91,deep:11.59},
+    tint:{text:'#7E672F',ratio:5.30,deep:8.13},
+    onWhite:1.62, onNavy:10.77, fill:9.98,
+    fillOn:'dark text on the fill',
+    delta:[['Linex Travel',62.3],['LinexGo',32.0],['Violet',69.5]],
+    market:['itravy','xoxoday','loylogic','tremendous','tmobile','violet'],
+    verdict:"From Meridian. A gold with the volume down: it keeps the tier-and-status reading without the metallic shine. It sits 13.4 from the Gold candidate, so it is the same idea in a quieter register.", said:"<b>New.</b> Built against Phil's objection to Gold. If what he rejected was ostentation rather than gold itself, this is the version worth testing."}
+};
+
+const root = document.documentElement;
+const cs = v => getComputedStyle(root).getPropertyValue(v).trim();
+
+/* ── direction: Flat accent (this system) vs. the two Aurora mockups ─────
+   Aurora files are shown in an isolated <iframe>, never merged into this
+   page's markup or stylesheet — both use generic class names (.hero, .area,
+   .metrics…) that would collide with the ones on this page if copied in. */
+const AURORA_SRC = {
+  'aurora-light': 'Linex-Loyalty-Home-Aurora-Light.html',
+  'aurora-dark':  'Linex-Loyalty-Home-Aurora-Content.html'
+};
+function applyDirection(){
+  const dir = root.dataset.dir;
+  const flatWin = document.getElementById('window-flat');
+  const auroraWin = document.getElementById('window-aurora');
+  const isAurora = dir === 'aurora-light' || dir === 'aurora-dark';
+  flatWin.hidden = isAurora;
+  auroraWin.hidden = !isAurora;
+  if(isAurora){
+    const src = AURORA_SRC[dir];
+    const frame = document.getElementById('aurora-frame');
+    if(frame.dataset.src !== src){ frame.src = src; frame.dataset.src = src; }
+    document.getElementById('aurora-open').href = src;
+    document.getElementById('aurora-url').textContent =
+      'linex-loyalty.com — Aurora, ' + (dir === 'aurora-light' ? 'light background' : 'dark background');
+  }
+  const auroraNote = document.getElementById('dir-aurora-note');
+  if(auroraNote) auroraNote.hidden = !isAurora;
+}
+
+function paint(){
+  applyDirection();
+  const a = root.dataset.accent, m = root.dataset.mode;
+  const d = D[a], mode = d[m];
+
+  document.getElementById('dh').textContent = d.name + ' · read';
+  document.getElementById('src').textContent = d.src;
+
+  document.getElementById('mkt-list').innerHTML =
+    `<div class="mkt-row is-ours"><span class="mkt-sw" style="background:${d.hex}"></span>
+      <span class="mkt-txt"><b>Linex Loyalty</b><span>the candidate on screen</span></span>
+      <span class="mkt-hex">${d.hex}</span></div>` +
+    d.market.map(k=>{const r=MKT[k];return `<div class="mkt-row">
+      <span class="mkt-sw" style="background:${r[0]}"></span>
+      <span class="mkt-txt"><b>${r[1]}</b><span>${r[2]}</span></span>
+      <span class="mkt-hex">${r[0]}</span></div>`}).join('');
+
+  document.getElementById('delta-list').innerHTML = d.delta.map(r=>`
+    <div class="row-i"><span>${r[0]}</span><span class="val">ΔE ${r[1].toFixed(1)}</span>
+      <span class="tag ${r[1]>=20?'pass':'fail'}">${r[1]>=20?'distinct':'too close'}</span></div>`).join('');
+
+  const rows = [
+    ['As text on this background', mode.ratio, mode.ratio>=4.5],
+    ['On the dark bands', mode.deep, mode.deep>=4.5],
+    ['Button label on the fill', d.fill, d.fill>=4.5],
+    ['The raw ' + d.hex + ' on white', d.onWhite, d.onWhite>=4.5],
+    ['The raw ' + d.hex + ' on navy #17153B', d.onNavy, d.onNavy>=4.5]
+  ];
+  document.getElementById('wcag-list').innerHTML = rows.map(r=>`
+    <div class="row-i"><span>${r[0]}</span><span class="val">${r[1].toFixed(2)}</span>
+      <span class="tag ${r[2]?'pass':'fail'}">${r[2]?'AA':'below AA'}</span></div>`).join('');
+
+  document.getElementById('verdict').innerHTML = '<b>' + d.name + '</b>' + d.verdict;
+  document.getElementById('said').innerHTML = d.said;
+
+  document.getElementById('token-code').innerHTML =
+`<span class="c">/* ${d.name} · ${m==='light'?'whitish':m==='tint'?'tinted':'navy'} */</span>
+<span class="k">--accent</span>:       <span class="v">${d.hex}</span>;
+<span class="k">--accent-text</span>:  <span class="v">${mode.text}</span>;   <span class="c">${mode.ratio.toFixed(2)}:1</span>
+<span class="k">--accent-deep</span>:  <span class="v">${cs('--accent-deep')}</span>;   <span class="c">${mode.deep.toFixed(2)}:1 on the dark bands</span>
+<span class="k">--on-accent</span>:    <span class="v">${cs('--on-accent')}</span>;   <span class="c">${d.fillOn}</span>
+<span class="k">--accent-soft</span>:  <span class="v">${cs('--accent-soft')}</span>;
+<span class="k">--accent-line</span>:  <span class="v">${cs('--accent-line')}</span>;
+<span class="k">--accent-rgb</span>:   <span class="v">${cs('--accent-rgb')}</span>;   <span class="c">for translucent veils</span>
+<span class="k">--bg</span>:           <span class="v">${cs('--bg')}</span>;
+<span class="k">--surface</span>:      <span class="v">${cs('--surface')}</span>;
+<span class="k">--ink</span>:          <span class="v">${cs('--ink')}</span>;`;
+
+  renderCompare();
+}
+
+/* ── compare table: all 13 candidates at once ────────────────────────────
+   Reuses the exact ΔE and WCAG numbers already computed per-candidate in D;
+   nothing here recomputes a value that the per-candidate drawer owns. ──── */
+function renderCompare(){
+  const active = root.dataset.accent;
+  const body = document.getElementById('compare-body');
+  if(!body) return;
+  body.innerHTML = Object.keys(D).map(key=>{
+    const d = D[key];
+    const isActive = key===active;
+    const deltaCells = d.delta.map(([label,val])=>
+      `<span class="tag ${val>=20?'pass':'fail'}" title="${label}: ΔE ${val.toFixed(1)}">${val.toFixed(0)}</span>`
+    ).join('');
+    const aaCells = [['light','Whitish'],['tint','Tinted'],['dark','Navy']].map(([m,label])=>{
+      const ratio = d[m].ratio, ok = ratio>=4.5;
+      return `<span class="tag ${ok?'pass':'fail'}" title="${label}: ${ratio.toFixed(2)}:1">${ratio.toFixed(1)}</span>`;
+    }).join('');
+    return `<tr class="${isActive?'is-active':''}">
+      <td><button class="cmp-pick" type="button" data-accent="${key}" aria-pressed="${isActive}"><span class="cmp-sw" style="background:${d.hex}"></span>${d.name}</button></td>
+      <td><div class="cmp-nums">${deltaCells}</div></td>
+      <td><div class="cmp-nums">${aaCells}</div></td>
+    </tr>`;
+  }).join('');
+}
+document.getElementById('compare-body').addEventListener('click', e=>{
+  const btn = e.target.closest('.cmp-pick');
+  if(!btn) return;
+  root.dataset.accent = btn.dataset.accent;
+  document.querySelectorAll('.chip[data-set="accent"]').forEach(b=>
+    b.setAttribute('aria-pressed', String(b.dataset.val===btn.dataset.accent)));
+  saveState();
+  paint();
+});
+
+/* ── shareable state: query string, mirrored to localStorage ────────────── */
+const STORE_KEY = 'linex-loyalty-theme-lab';
+const DIRS = ['flat','aurora-light','aurora-dark'];
+function initState(){
+  const params = new URLSearchParams(window.location.search);
+  let accent = params.get('accent');
+  let mode = params.get('mode');
+  let dir = params.get('dir');
+  accent = (accent && D[accent]) ? accent : null;
+  mode = (mode && ['light','tint','dark'].includes(mode)) ? mode : null;
+  dir = (dir && DIRS.includes(dir)) ? dir : null;
+  if(!accent || !mode || !dir){
+    try{
+      const saved = JSON.parse(localStorage.getItem(STORE_KEY) || 'null');
+      if(saved){
+        accent = accent || (D[saved.accent] ? saved.accent : null);
+        mode = mode || (['light','tint','dark'].includes(saved.mode) ? saved.mode : null);
+        dir = dir || (DIRS.includes(saved.dir) ? saved.dir : null);
+      }
+    }catch(e){ /* localStorage unavailable — fall through to defaults */ }
+  }
+  root.dataset.accent = accent || root.dataset.accent || 'green';
+  root.dataset.mode = mode || root.dataset.mode || 'light';
+  root.dataset.dir = dir || root.dataset.dir || 'flat';
+  document.querySelectorAll('.chip[data-set="accent"]').forEach(b=>
+    b.setAttribute('aria-pressed', String(b.dataset.val===root.dataset.accent)));
+  document.querySelectorAll('.chip[data-set="mode"]').forEach(b=>
+    b.setAttribute('aria-pressed', String(b.dataset.val===root.dataset.mode)));
+  document.querySelectorAll('.chip[data-set="dir"]').forEach(b=>
+    b.setAttribute('aria-pressed', String(b.dataset.val===root.dataset.dir)));
+}
+function saveState(){
+  try{
+    localStorage.setItem(STORE_KEY, JSON.stringify({accent:root.dataset.accent, mode:root.dataset.mode, dir:root.dataset.dir}));
+  }catch(e){ /* private browsing / storage disabled — URL still carries state */ }
+  const url = new URL(window.location.href);
+  url.searchParams.set('accent', root.dataset.accent);
+  url.searchParams.set('mode', root.dataset.mode);
+  url.searchParams.set('dir', root.dataset.dir);
+  history.replaceState(null, '', url.toString());
+}
+
+document.querySelectorAll('.chip').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    root.dataset[btn.dataset.set] = btn.dataset.val;
+    document.querySelectorAll(`.chip[data-set="${btn.dataset.set}"]`).forEach(b=>
+      b.setAttribute('aria-pressed', String(b===btn)));
+    saveState();
+    paint();
+  });
+});
+
+const btnCopy = document.getElementById('btn-copylink');
+btnCopy.addEventListener('click', async ()=>{
+  saveState();
+  const url = window.location.href;
+  let copied = true;
+  try{
+    await navigator.clipboard.writeText(url);
+  }catch(err){
+    try{
+      const ta = document.createElement('textarea');
+      ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }catch(err2){ copied = false; }
+  }
+  const original = btnCopy.textContent;
+  btnCopy.textContent = copied ? 'Link copied ✓' : 'Could not copy';
+  btnCopy.classList.toggle('is-copied', copied);
+  clearTimeout(btnCopy._resetTimer);
+  btnCopy._resetTimer = setTimeout(()=>{
+    btnCopy.textContent = original;
+    btnCopy.classList.remove('is-copied');
+  }, 1700);
+});
+
+/* ── drawers: open/close, plus focus in on open and back out on close ───── */
+const scrim = document.getElementById('scrim');
+let lastTrigger = null;
+
+function getFocusable(container){
+  return Array.from(container.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  )).filter(el => !el.disabled && el.offsetParent !== null);
+}
+
+function closeAll(returnFocus){
+  const wasOpen = document.querySelector('.drawer[data-open="true"]');
+  document.querySelectorAll('.drawer').forEach(d=>d.dataset.open='false');
+  scrim.dataset.open='false';
+  document.querySelectorAll('.rail-btn[aria-expanded]').forEach(b=>b.setAttribute('aria-expanded','false'));
+  if(returnFocus !== false && wasOpen && lastTrigger){ lastTrigger.focus(); }
+  lastTrigger = null;
+}
+function openDrawer(id, btn){
+  const wasOpen = btn.getAttribute('aria-expanded')==='true';
+  closeAll(false);
+  if(!wasOpen){
+    const drawer = document.getElementById(id);
+    drawer.dataset.open='true';
+    scrim.dataset.open='true';
+    btn.setAttribute('aria-expanded','true');
+    lastTrigger = btn;
+    const focusables = getFocusable(drawer);
+    const target = drawer.querySelector('.drawer-close') || focusables[0];
+    if(target) requestAnimationFrame(()=>target.focus());
+  }
+}
+document.getElementById('btn-market').addEventListener('click',e=>openDrawer('drawer-market', e.currentTarget));
+document.getElementById('btn-delta').addEventListener('click', e=>openDrawer('drawer-delta',  e.currentTarget));
+document.getElementById('btn-tokens').addEventListener('click',e=>openDrawer('drawer-tokens', e.currentTarget));
+document.getElementById('btn-compare').addEventListener('click',e=>openDrawer('drawer-compare', e.currentTarget));
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>closeAll(true)));
+scrim.addEventListener('click',()=>closeAll(true));
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){ closeAll(true); return; }
+  if(e.key==='Tab'){
+    const open = document.querySelector('.drawer[data-open="true"]');
+    if(!open) return;
+    const focusables = getFocusable(open);
+    if(!focusables.length) return;
+    const first = focusables[0], last = focusables[focusables.length-1];
+    if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+  }
+});
+
+initState();
+saveState();
+paint();
+</script>
+</body>
+</html>
