@@ -20,7 +20,7 @@
 
 /* — 1. SURFACES —————————————————————————————————————————————————
    Whitish = the public.com direction Philippe asked for
-   Navy    = #17153B, the Azul Noche of the brand manual                    */
+   Navy    = #17153B, the Azul Noche                                        */
 /* Whitish and Navy are fixed. Tinted is generated per accent, below. */
 [data-mode="light"]{
   --bg:#F8F8FB;  --surface:#FFFFFF;  --raised:#F1F1F6;
@@ -172,8 +172,8 @@
   --accent-text:#7E672F; --accent-soft:#F7EAD3; --accent-line:#D6C8AE; --accent-deep:#E6C88A; }
 /* — 3. COMMITTED, NOT UNDER EVALUATION ——————————————————————————— */
 :root{
-  --star-travel:#5B5CFF;   /* official · brand manual · trademark filing   */
-  --star-go:#FF725E;       /* official · brand manual · trademark filing   */
+  --star-travel:#5B5CFF;   /* official                                     */
+  --star-go:#FF725E;       /* official                                     */
   --star-market:#DB2777;   /* proposed · pending                           */
   --star-rewards:#059669;  /* proposed · pending                           */
 }
@@ -419,7 +419,7 @@ a{color:inherit;text-decoration:none;}
       <button class="chip" data-set="dir" data-val="aurora-dark" aria-pressed="false">Aurora — Dark</button>
     </div>
   </div>
-  <p class="dir-note"><b>Governance note:</b> the Constellation Model (reconciled in the brand manual) calls for one flat accent colour per star — not a gradient. Aurora is a more disruptive direction; if it is ever chosen, that opens a larger governance conversation about whether the masterbrand can carry a multi-colour gradient identity instead of a flat accent, not just which hex to pick. This tool does not take a position on that question.</p>
+  <p class="dir-note"><b>Governance note:</b> the Constellation Model calls for one flat accent colour per star — not a gradient. Aurora is a more disruptive direction; if it is ever chosen, that opens a larger governance conversation about whether the masterbrand can carry a multi-colour gradient identity instead of a flat accent, not just which hex to pick. This tool does not take a position on that question.</p>
 
   <div class="rail-group rail-group-accent">
     <span class="rail-label">Accent</span>
@@ -554,7 +554,7 @@ a{color:inherit;text-decoration:none;}
             <text class="node-name" x="705" y="419" text-anchor="middle">LinexGo</text>
             <text class="node-role" x="705" y="437" text-anchor="middle">inside Travel · B2B</text>
           </svg>
-          <p class="note">The colours of Travel and LinexGo are already approved and filed. They appear here so the masterbrand colour can be judged beside them — they are not candidates.</p>
+          <p class="note">The colours of Travel and LinexGo are already settled. They appear here so the masterbrand colour can be judged beside them — they are not candidates.</p>
         </section>
 
         <section class="secure">
@@ -612,8 +612,8 @@ a{color:inherit;text-decoration:none;}
     <div class="src" id="src"></div>
     <h4>Against the category</h4>
     <div class="mkt" id="mkt-list"></div>
-    <h4>Distance from colours already approved</h4>
-    <p>Perceptual distance to the brands whose colour is settled and already in trademark filings. Below 20, two colours read as the same family.</p>
+    <h4>Distance from the colours already settled</h4>
+    <p>Perceptual distance to the brands in the family whose colour is already settled. Below 20, two colours read as the same family.</p>
     <div class="rows" id="delta-list"></div>
     <h4>Legibility</h4>
     <p>Every pair on this page was measured and corrected. AA for body copy is 4.5.</p>
@@ -633,15 +633,15 @@ a{color:inherit;text-decoration:none;}
       <div class="delta-item"><b>Social preview points to localhost<span class="sev">fix now</span></b>
         <span>The og:image tag resolves to http://localhost:3000/hero-bg.png, so every link shared on LinkedIn, WhatsApp or Slack renders with a broken image. The og:url tag points to a different domain than this one. Independent of any colour decision.</span></div>
       <div class="delta-item"><b>A supplier sits in the client wall<span class="sev">review</span></b>
-        <span>One name in Trusted By is a supplier rather than a client. It is reproduced here for fidelity, but it is worth a decision before the wall is shown to a prospect.</span></div>
+        <span>One name in Trusted By is a supplier rather than a client. Worth a decision before the wall is shown to a prospect.</span></div>
       <div class="delta-item"><b>&ldquo;A holding company that invests&rdquo;<span class="sev sev-mid">reword</span></b>
         <span>The page describes Linex Loyalty as a holding company with capital structures, and the meta description says it invests globally in the sector. That is the language of the fund, not of the platform a bank is buying.</span></div>
-      <div class="delta-item"><b>Engage in the navigation<span class="sev sev-mid">retire</span></b>
-        <span>Engage is no longer a line of business. The engagement capability stays; the menu label goes and the section becomes Activate.</span></div>
+      <div class="delta-item"><b>The third menu label<span class="sev sev-mid">retire</span></b>
+        <span>The third area is no longer a line of business. The capability stays; the label becomes Activate.</span></div>
       <div class="delta-item"><b>The hero is a fixed image<span class="sev sev-mid">rebuild</span></b>
-        <span>hero-bg-blue.png is a blue raster file, so it sits outside design.md and will not follow a theme change. Whichever colour is chosen, the hero artwork has to be re-rendered. Here it is drawn in CSS so it can switch.</span></div>
+        <span>hero-bg-blue.png is a blue raster file, so it sits outside design.md and will not follow a theme change. Whichever colour is chosen, the hero artwork has to be re-rendered so it follows the theme.</span></div>
     </div>
-    <h4>What the proposed view adds</h4>
+    <h4>What this proposal adds</h4>
     <div class="delta-list">
       <div class="delta-item"><b>Ixar</b><span>The agents get a name and a face. Today the site says AI assistants; the proposal gives them a conductor the prospect can talk to.</span></div>
       <div class="delta-item"><b>The constellation</b><span>Earn and Burn lead somewhere named — Rewards, Travel, Marketplace — instead of ending on a generic learn more.</span></div>
@@ -655,18 +655,18 @@ a{color:inherit;text-decoration:none;}
   <div class="drawer-head"><h3>design.md — live</h3><button class="drawer-close" data-close>&times;</button></div>
   <div class="drawer-body">
     <p id="dir-aurora-note" hidden style="background:var(--raised);border-radius:8px;padding:10px 12px;">You're viewing an Aurora direction — this token system belongs to <b>Flat accent</b>, not Aurora. Aurora fixes its own gradient palette inside its own file; it does not read from these custom properties, and design.md does not describe it.</p>
-    <p>Every colour on both views resolves from this block. Change these values and the whole site changes — nothing else in the codebase names a colour.</p>
+    <p>Every colour on this page resolves from this block. Change these values and the whole site changes — nothing else in the codebase names a colour.</p>
     <div class="code" id="token-code"></div>
     <h4>How these values were set</h4>
     <p>Each accent was measured against every surface it lands on — page, card, tinted band, dark band, and its own fill. Any pair below WCAG AA was shifted in lightness, keeping hue and chroma, until it passed. The lowest pair in the finished system is 4.50.</p>
     <h4>Committed, not under evaluation</h4>
     <div class="code"><span class="c">/* the stars */</span>
-<span class="k">--star-travel</span>:  <span class="v">#5B5CFF</span>;  <span class="c">official, filed</span>
-<span class="k">--star-go</span>:      <span class="v">#FF725E</span>;  <span class="c">official, filed</span>
+<span class="k">--star-travel</span>:  <span class="v">#5B5CFF</span>;  <span class="c">official</span>
+<span class="k">--star-go</span>:      <span class="v">#FF725E</span>;  <span class="c">official</span>
 <span class="k">--star-market</span>:  <span class="v">#DB2777</span>;  <span class="c">proposed</span>
 <span class="k">--star-rewards</span>: <span class="v">#059669</span>;  <span class="c">proposed</span></div>
     <h4>The navy is not a choice</h4>
-    <p>The dark background is #17153B, the Azul Noche of the brand manual — the same navy the family already uses, so every candidate is judged on a surface it will actually live on.</p>
+    <p>The dark background is #17153B, the Azul Noche — the same navy the family already uses, so every candidate is judged on a surface it will actually live on.</p>
   </div>
 </aside>
 
@@ -679,7 +679,7 @@ a{color:inherit;text-decoration:none;}
         <thead>
           <tr>
             <th>Candidate</th>
-            <th>&Delta;E vs. Travel &middot; Go &middot; Violet</th>
+            <th>&Delta;E vs. other Linex colours</th>
             <th>AA on Whitish &middot; Tinted &middot; Navy</th>
           </tr>
         </thead>
